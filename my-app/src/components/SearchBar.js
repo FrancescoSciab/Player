@@ -8,12 +8,11 @@ export default function SearchBar() {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    fetch("../../public/data.json")
+    fetch("/data.json")
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => console.log(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-  console.log(data);
   // Bypass client-side filtering by returning `true`. Results are already
   // filtered by the search endpoint, so no need to do it again.
   const filterBy = () => true;
