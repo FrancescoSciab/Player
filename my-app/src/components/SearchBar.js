@@ -1,75 +1,75 @@
 import { useState } from "react";
-import { AsyncTypeahead, Typeahead } from "react-bootstrap-typeahead";
+import { Highlighter, Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Form from "react-bootstrap/Form";
+import "../App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function SearchBar() {
   //   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState([]);
+  const props = {};
 
-  const handleSearch = (query) => {
-    setIsLoading(true);
-
+  const handleChange = () => {
     fetch("/data.json")
       .then((response) => response.json())
       .then((data) => {
-        const flattenedData = data.flatMap((band) =>
-          band.albums.flatMap((album) =>
-            album.songs.map((song) => ({
-              bandName: band.title,
-              albumTitle: album.title,
-              songTitle: song.title,
-              songLength: song.length,
-            }))
-          )
-        );
-        // console.log(`albums: ${albums}`);
-
+        //Library search algorithms need flattened data
+        const flattenedData = [];
+        data.forEach((artist) => {
+          artist.albums.forEach((album) => {
+            album.songs.forEach((song) => {
+              flattenedData.push({
+                artistName: artist.name,
+                albumTitle: album.title,
+                songTitle: song.title,
+                songLength: song.length,
+              });
+            });
+          });
+        });
         setOptions(flattenedData);
-        setIsLoading(false);
       })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-      });
+      .catch((error) => console.error("Error fetching data:", error));
   };
 
-  // Bypass client-side filtering by returning `true`. Results are already
-  // filtered by the search endpoint, so no need to do it again.
-  const filterBy = () => true;
+  const labelKey = (option) =>
+    `${option.songTitle} - ${option.artistName} (${option.albumTitle})`;
 
-  const renderMenuItemChildren = (option) => {
-    return (
-      <>
-        <span>
-          <strong>{option.songTitle}</strong> by <em>{option.bandName}</em>
-        </span>
-        <div>
-          <small>Album: {option.albumTitle}</small>
-        </div>
-        <div>
-          <small>Length: {option.songLength}</small>
-        </div>
-      </>
-    );
-  };
+  //It is the dropdown menu
+  props.renderMenuItemChildren = (option, { text }) => (
+    <>
+      <Highlighter search={text}>{option.songTitle}</Highlighter>
+
+      <div>
+        <small>
+          by <Highlighter search={text}>{option.artistName}</Highlighter> from
+          the album
+          <Highlighter search={text}>{option.albumTitle}</Highlighter>
+        </small>
+      </div>
+      <div>
+        <small>Length: {option.songLength}</small>
+      </div>
+    </>
+  );
 
   return (
     <>
-      <Form.Group>
+      <Form.Group className="mx-5">
         <Form.Label>Search your song</Form.Label>
-
-        <AsyncTypeahead
+        <Typeahead
+          {...props}
           id="basic-typeahead-single"
-          labelKey="songTitle"
-          filterBy={filterBy}
-          isLoading={isLoading}
-          onSearch={handleSearch}
+          labelKey={labelKey}
+          filterBy={["albumTitle", "artistName", "songLength", "songTitle"]}
+          onInputChange={handleChange}
           options={options}
           placeholder="Search a song..."
+          clearButton="true"
+          size="lg"
+          autoFocus="true"
           //   selected={singleSelections}
-          renderMenuItemChildren={renderMenuItemChildren}
         />
       </Form.Group>
     </>
