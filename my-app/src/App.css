@@ -2,6 +2,10 @@
   color: #212124;
 }
 
+.rbt-close-content {
+  display: none;
+}
+
 .App {
   background-color: #ffffff;
   min-height: 100vh;
