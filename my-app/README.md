@@ -1,8 +1,6 @@
-# Player - React Songs Search App
+# Player - Songs Search React App
 
-This is a simple React application that provides an autocomplete search box for searching songs, albums, and artists. The primary component of this application is the SearchBar component with an autocomplete functionality.
-
-[Create React App](https://github.com/facebook/create-react-app).
+This is a simple Minimal React application that provides an autocomplete search box for searching songs, albums, and artists. The primary component of this application is the SearchBar component with an autocomplete functionality.
 
 # Usage
 
@@ -27,13 +25,14 @@ The fetched data is flattened to ensure it is suitable for the search algorithm 
 The component uses the useState hook to manage the state of the options available for autocomplete.
 
 - Filtering
-  filterby specifies which fields in the options array to filter against when the user types in the search input.
+  filterby prop specifies which fields in the options array to filter against when the user types in the search input.
 
 - Rendering Options:
 
 The labelKey function determines how each option is displayed in the dropdown.
 The renderMenuItemChildren prop customizes the rendering of each item in the dropdown to include the song title, artist name, album title, and song length, with matching text highlighted.
 
-# Use it
+# App link
 
-The App can be used by clicking this [link](https://github.com/FrancescoSciab/Player)
+The App can be used by clicking this [link](francescosciab.github.io/Player/)
+[Github](https://github.com/FrancescoSciab/Player)
