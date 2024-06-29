@@ -57,7 +57,7 @@ export default function SearchBar() {
   return (
     <>
       <Form.Group className="mx-5">
-        <Form.Label>Search your song</Form.Label>
+        <Form.Label>Search a song, album, artist</Form.Label>
         <Typeahead
           {...props}
           id="basic-typeahead-single"
@@ -66,11 +66,16 @@ export default function SearchBar() {
           onInputChange={handleChange}
           options={options}
           placeholder="Search a song..."
-          clearButton="true"
+          clearButton={true}
           size="lg"
-          autoFocus="true"
+          autoFocus={true}
+          flip={true}
+          minLength={1}
           //   selected={singleSelections}
         />
+        <Form.Text className="text-muted">
+          Results will be shown by song title, artist, and album.
+        </Form.Text>
       </Form.Group>
     </>
   );

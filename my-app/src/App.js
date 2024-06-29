@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { FcMusic } from "react-icons/fc";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
@@ -9,8 +8,9 @@ function App() {
       <div className="App-logo">
         <FcMusic />
       </div>
-
-      <SearchBar />
+      <main>
+        <SearchBar />
+      </main>
     </div>
   );
 }
