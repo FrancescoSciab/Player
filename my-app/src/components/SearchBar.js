@@ -11,7 +11,7 @@ export default function SearchBar() {
   const props = {};
 
   const handleChange = () => {
-    fetch("/data.json")
+    fetch(process.env.PUBLIC_URL + "/data.json")
       .then((response) => response.json())
       .then((data) => {
         //Library search algorithms need flattened data

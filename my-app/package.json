@@ -4,7 +4,7 @@
   "homepage": "https://FrancescoSciab.github.io/Player",
   "private": true,
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "",
+    
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "@babel/plugin-proposal-private-property-in-object": ""
   }
 }
