@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Player - React Songs Search App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React application that provides an autocomplete search box for searching songs, albums, and artists. The primary component of this application is the SearchBar component with an autocomplete functionality.
 
-## Available Scripts
+[Create React App](https://github.com/facebook/create-react-app).
 
-In the project directory, you can run:
+# Usage
 
-### `npm start`
+The main feature of this application is the autocomplete search functionality for songs, albums, and artists.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Search for Songs: Start typing the name of a song in the search bar, and it will display matching results.
+- Search for Albums: Similarly, you can search for albums by their titles.
+- Search for Artists: You can also search by artist names.
+  Results will be shown by song title, artist, and album.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Technical explanation
 
-### `npm test`
+The app uses react-bootstrap-typeahead npm package which provides an autocomplete or typeahead component for React applications. It's designed to handle large datasets efficiently and provides various features for filtering and displaying data from a JSON source.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Fetching Data:
 
-### `npm run build`
+On input change, it fetches data from data.json located in the public directory.
+The fetched data is flattened to ensure it is suitable for the search algorithm used by the Typeahead component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- State Management:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The component uses the useState hook to manage the state of the options available for autocomplete.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Filtering
+  filterby specifies which fields in the options array to filter against when the user types in the search input.
 
-### `npm run eject`
+- Rendering Options:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The labelKey function determines how each option is displayed in the dropdown.
+The renderMenuItemChildren prop customizes the rendering of each item in the dropdown to include the song title, artist name, album title, and song length, with matching text highlighted.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Use it
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The App can be used by clicking this [link](https://github.com/FrancescoSciab/Player)

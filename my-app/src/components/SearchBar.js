@@ -39,22 +39,18 @@ export default function SearchBar() {
   //It is the dropdown menu
   props.renderMenuItemChildren = (option, { text }) => (
     <>
-      <ul>
-        <li>
-          <Highlighter search={text}>{option.songTitle}</Highlighter>
+      <Highlighter search={text}>{option.songTitle}</Highlighter>
 
-          <div>
-            <small>
-              by <Highlighter search={text}>{option.artistName}</Highlighter>{" "}
-              from the album
-              <Highlighter search={text}>{` ${option.albumTitle}`}</Highlighter>
-            </small>
-          </div>
-          <div>
-            <small>Length: {option.songLength}</small>
-          </div>
-        </li>
-      </ul>
+      <div>
+        <small>
+          by <Highlighter search={text}>{option.artistName}</Highlighter> from
+          the album
+          <Highlighter search={text}>{` ${option.albumTitle}`}</Highlighter>
+        </small>
+      </div>
+      <div>
+        <small>Length: {option.songLength}</small>
+      </div>
     </>
   );
 
