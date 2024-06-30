@@ -35,6 +35,6 @@ The renderMenuItemChildren prop customizes the rendering of each item in the dro
 
 # App link
 
-The App can be used by clicking this [link](francescosciab.github.io/Player/)
+The App can be used by clicking this [link](https://francescosciab.github.io/Player/)
 
 - [Github](https://github.com/FrancescoSciab/Player)
