@@ -25,7 +25,8 @@ The fetched data is flattened to ensure it is suitable for the search algorithm 
 The component uses the useState hook to manage the state of the options available for autocomplete.
 
 - Filtering
-  filterby prop specifies which fields in the options array to filter against when the user types in the search input.
+
+filterby prop specifies which fields in the options array to filter against when the user types in the search input.
 
 - Rendering Options:
 
@@ -35,4 +36,5 @@ The renderMenuItemChildren prop customizes the rendering of each item in the dro
 # App link
 
 The App can be used by clicking this [link](francescosciab.github.io/Player/)
-[Github](https://github.com/FrancescoSciab/Player)
+
+- [Github](https://github.com/FrancescoSciab/Player)
